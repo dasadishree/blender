@@ -37,17 +37,20 @@ body {
 
 
 .hero{
-  display: flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 60px 80px 0px 80px;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto atuo;
+  padding: 0px 80px;
+  gap: 20px 40px;
 }
 
 .hero-text{
+  grid-column: 1;
+  grid-row:1;
   display: flex;
   flex-direction: column;
   gap:16px;
+  padding-top:21vh;
 }
 
 h1{
@@ -56,6 +59,16 @@ h1{
   color: white;
   text-shadow:20px 20px 0px #3ECFB0, 20px 20px 0px rgba(62,207,176,0.3), -2px -2px 0px #ADFF4B;
   -webkit-text-stroke: 3px #3ECFB0;
+  letter-spacing: -0.11em;
+  line-height: 1;
+}
+
+h2{
+  font-size: 8vw;
+  font-family: var(--font-dynapuff);
+  color: white;
+  text-shadow:20px 20px 0px #da58c7, 20px 20px 0px rgba(207, 59, 160, 0.3), -2px -2px 0px #f94bff;
+  -webkit-text-stroke: 3px #c257b0;
   letter-spacing: -0.11em;
   line-height: 1;
 }
@@ -86,6 +99,26 @@ h3{
   opacity: 0.8;
 }
 .hero-image{
-  transform: rotate(-14deg);
-  flex-shrink:0;
+  transform: rotate(-16deg);
+  
+}
+.weekly-challenge{
+  background: rga(255, 255, 255, 0.55);
+  border-radius: 16px;
+  padding: 14px 18px;
+  max-width: 301vw;
+  border: 2px sold rgba(255, 255, 255, 0.7)
+}
+.challenge-heading{
+  font-family: var(--font-dynapuff);
+  font-size: 14px;
+  font-weight: 700;
+  color:#0e3532;
+  margin-bottom: 6px;
+}
+.challenge-body{
+  font-size:12px;
+  font-weight:700;
+  color: #0e3532;
+  line-height: 1.5;
 }

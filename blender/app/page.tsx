@@ -12,14 +12,26 @@ export default function Home() {
           <h3>create a project using CAD,<br/>learn new skills, get prizes!!!</h3>
           <a href="#" className="rsvpBtn">rsvp now!</a>
         </div>
+
+        <div className="challengeWrap">
+          <div className="weekly-challenge">
+              <p className="challenge-heading">weekly challenge:</p>
+              <p className="challenge-body">create a fidget toy/stress reliever 3d model, get a fidget like needohs or slime!</p>
+          </div>
+        </div>
+        
         <div className="hero-image">
           <Image
             src="/blender.png"
             alt="blender"
-            width={340}
-            height={340}
+            width={500}
+            height={500}
           />
         </div>
+      </div>
+
+      <div>
+        <h2>how it works</h2>
       </div>
     </main>
   );
