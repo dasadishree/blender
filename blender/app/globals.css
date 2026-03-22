@@ -124,6 +124,31 @@ h3{
 .rsvpBtn:hover{
   transform: scale(1.08) rotate(-2deg);
 }
+
+/* reopen nav button */
+.popup-reopen-btn{
+  display: inline-block;
+  width: fit-content;
+  background: #e67b5c;
+  color: white;
+  font-family: var(--font-dynapuff);
+  font-size: clamp(0.6rem, 1.05vw, 0.85rem);
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform 0.25s ease;
+  max-width: min(200px, 42vw);
+}
+.popup-reopen-btn:hover{
+  transform: scale(1.06) rotate(-2deg);
+}
+
+
 .hero-image{
   transform: rotate(-20deg);
   align-self: center;

@@ -1,9 +1,8 @@
 import "./globals.css";
-import Navbar from '@/components/Navbar';
+import HomeShell from '@/components/HomeShell';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import Popup from "@/components/Popup";
 
 // fruitssssd
 const FRUITS = [
@@ -46,10 +45,7 @@ const FRUITS = [
 
 export default function Home() {
   return (
-    <main>
-      <Popup/>
-      <Navbar/>
-
+    <HomeShell>
       <div className="hero">
         <div className="hero-left">
           <div className="hero-text">
@@ -168,6 +164,6 @@ export default function Home() {
             <center><h2>prizes</h2></center>
             <h3 className="prizes-body">a shop is coming soon, but here are the prize options! this is open to any suggestions.</h3>
       </div>
-    </main>
+    </HomeShell>
   );
 };
