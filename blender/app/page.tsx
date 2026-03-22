@@ -3,8 +3,9 @@ import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
+import Popup from "@/components/Popup";
 
-/** Order = die “5” face: top-left, top-right, center, bottom-left, bottom-right */
+// fruitssssd
 const FRUITS = [
   {
     src: '/strawberry.png',
@@ -46,6 +47,7 @@ const FRUITS = [
 export default function Home() {
   return (
     <main>
+      <Popup/>
       <Navbar/>
 
       <div className="hero">
@@ -85,7 +87,7 @@ export default function Home() {
         <div className="steps">
           <div className="step" style={{ '--step-color': '#e67b5c' } as CSSProperties}>
             <span className="step-tag">1. pick a track/fruit </span>
-            <p className="step-body">choose your fruit! in this YSWS, you will learn how to use CAD in different types of projects: from fashion, architecture, art, video editing, web development, and so much more.</p>
+            <p className="step-body">choose your fruit! in this YSWS, you will learn how to use CAD in different types of projects: from fashion, architecture, 3d rendered art/gfx's, video editing, web development, and so much more.</p>
           </div>
           <div className="step" style={{ '--step-color': '#f2a93b' } as CSSProperties}>
             <span className="step-tag">2. create a project</span>
@@ -160,6 +162,11 @@ export default function Home() {
           ))}
         </div>
         </div>
+      </div>
+
+      <div className="prizes-section">
+            <center><h2>prizes</h2></center>
+            <h3 className="prizes-body">a shop is coming soon, but here are the prize options! this is open to any suggestions.</h3>
       </div>
     </main>
   );

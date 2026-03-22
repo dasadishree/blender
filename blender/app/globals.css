@@ -187,7 +187,8 @@ h3{
   align-self: stretch;
   width: 100%;
   text-align: right;
-  margin: 0 0 6px;
+  margin-top:6px;
+  margin-bottom: 0px;
 }
 .how-section-body{
   display: grid;
@@ -197,7 +198,7 @@ h3{
   width: 100%;
 }
 
-/* Dice “5” layout: corners + center (standard die face) */
+/* position fruits  */
 .dice-five{
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -205,7 +206,7 @@ h3{
   gap: clamp(0.35rem, 2.5vw, 1rem);
   width: 100%;
   max-width: min(500px, 100%);
-  margin-top: 1.75rem;
+  margin-top: 9rem;
   margin-inline: auto;
   justify-self: center;
   padding: 0.25rem;
@@ -344,4 +345,94 @@ h3{
 }
 .step-body a:hover{
   color: #063d39;
+}
+h2:hover{
+  transform: scale(1.05) rotate(-3deg);
+}
+
+/* popup */
+.popup-overlay{
+  position: fixed;
+  inset:0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.popup-box{
+  background: palegoldenrod;
+  border-radius: 24px;
+  padding: 32px 36px;
+  max-width: 620px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  clip-path: polygon(
+    0% 3%, 2.5% 0%, 5% 3%, 7.5% 0%, 10% 3%, 12.5% 0%, 15% 3%, 17.5% 0%, 20% 3%, 22.5% 0%, 25% 3%, 27.5% 0%, 30% 3%, 32.5% 0%, 35% 3%, 37.5% 0%, 40% 3%, 42.5% 0%, 45% 3%, 47.5% 0%, 50% 3%, 52.5% 0%, 55% 3%, 57.5% 0%, 60% 3%, 62.5% 0%, 65% 3%, 67.5% 0%, 70% 3%, 72.5% 0%, 75% 3%, 77.5% 0%, 80% 3%, 82.5% 0%, 85% 3%, 87.5% 0%, 90% 3%, 92.5% 0%, 95% 3%, 97.5% 0%, 100% 3%,
+    100% 97%, 97.5% 100%, 95% 97%, 92.5% 100%, 90% 97%, 87.5% 100%, 85% 97%, 82.5% 100%, 80% 97%, 77.5% 100%, 75% 97%, 72.5% 100%, 70% 97%, 67.5% 100%, 65% 97%, 62.5% 100%, 60% 97%, 57.5% 100%, 55% 97%, 52.5% 100%, 50% 97%, 47.5% 100%, 45% 97%, 42.5% 100%, 40% 97%, 37.5% 100%, 35% 97%, 32.5% 100%, 30% 97%, 27.5% 100%, 25% 97%, 22.5% 100%, 20% 97%, 17.5% 100%, 15% 97%, 12.5% 100%, 10% 97%, 7.5% 100%, 5% 97%, 2.5% 100%, 0% 97%
+  );
+  filter: drop-shadow(6px 8px 0 rgba(62,207,176,0.5)) drop-shadow(0 4px 20px rgba(218,88,199,0.3));
+}
+
+.popup-heading{
+  font-family: var(--font-dynapuff);
+  font-size: 2.2rem;
+  color: #e67b5c;
+  margin-bottom: 16px;
+  text-align: center;
+  text-shadow: none;
+  -webkit-text-stroke:0;
+  letter-spacing: normal;
+}
+
+.popup-body{
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0e3532;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.popup-close{
+  display:block;
+  margin:0 auto;
+  background: teal;
+  color: white;
+  font-family: var(--font-dynapuff);
+  font-size: 1rem;
+  font-weight:700;
+  padding: 12px 28px;
+  border-radius:100px;
+  border:none;
+  cursor:pointer;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease;
+}
+.popup-close:hover{
+  transform: scale(1.08) rotate(-2deg);
+}
+.popup-links{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top:4px;
+}
+.popup-link{
+  display: block;
+  font-family: var(--font-dynapuff);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+.popup-link:hover{
+  transform: scale(1.02) rotate(-1deg);
 }
