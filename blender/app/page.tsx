@@ -4,14 +4,54 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 
+/** Order = die “5” face: top-left, top-right, center, bottom-left, bottom-right */
+const FRUITS = [
+  {
+    src: '/strawberry.png',
+    alt: 'Strawberry',
+    caption: 'game dev / visual novel art & assets',
+    tilt: -13,
+    size: 170,
+  },
+  {
+    src: '/blueberry.webp',
+    alt: 'Blueberry',
+    caption: 'web dev',
+    tilt: 10,
+    size: 155,
+  },
+  {
+    src: '/kiwi.png',
+    alt: 'Kiwi',
+    caption: 'other',
+    tilt: -7,
+    size: 155,
+  },
+  {
+    src: '/mango.webp',
+    alt: 'Mango',
+    caption: 'general art / animation / video editing',
+    tilt: 12,
+    size: 155,
+  },
+  {
+    src: '/pineapple.webp',
+    alt: 'Pineapple',
+    caption: 'architecture / interior design',
+    tilt: -11,
+    size: 155,
+  },
+];
+
 export default function Home() {
   return (
     <main>
       <Navbar/>
+
       <div className="hero">
         <div className="hero-left">
           <div className="hero-text">
-            <h1>blender</h1>
+            <h1 className="hero-title">blender</h1>
             <h3>create a 3d project using CAD, <br></br>learn new skills, get prizes!!!</h3>
             <a href="#" className="rsvpBtn">rsvp now!</a>
 
@@ -30,13 +70,18 @@ export default function Home() {
             alt="blender"
             width={350}
             height={350}
+            className="hero-blender-img"
+            style={{ width: '400px', height: '700px' }}
+            priority
           />
         </div>
       </div>
 
-      <div className="how-section"> 
+      <div className="how-section">
         <h2>how it works</h2>
 
+{/* steps */}
+        <div className="how-section-body">
         <div className="steps">
           <div className="step" style={{ '--step-color': '#e67b5c' } as CSSProperties}>
             <span className="step-tag">1. pick a track/fruit </span>
@@ -88,6 +133,32 @@ export default function Home() {
             <span className="step-tag">5. get prizes!!!!</span>
             <p className="step-body">get all sorts of prizes for hours shipped! prize options are below (shop coming soon) and please dm me on <a href="https://slack.hackclub.com/">Slack</a> at @adishree for any suggestions!</p>
           </div>
+        </div>
+
+        <div className="dice-five" aria-label="Tracks (dice five layout)">
+          {FRUITS.map((item) => (
+            <div
+              key={item.src}
+              className="dice-five__cell"
+              style={{ ['--tilt']: `${item.tilt}deg` } as CSSProperties}
+            >
+              <div className="dice-five__card">
+                <div className="dice-five__img-wrap">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.size}
+                    height={item.size}
+                    className="dice-five__img"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 28vw, 140px"
+                  />
+                </div>
+                <p className="dice-five__caption">{item.caption}</p>
+              </div>
+            </div>
+          ))}
+        </div>
         </div>
       </div>
     </main>

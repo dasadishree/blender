@@ -43,6 +43,8 @@ body {
   padding: 0px 80px;
   gap: 20px 40px;
   align-items: start;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 
 .hero-left{
@@ -59,7 +61,6 @@ body {
   flex-direction: column;
   gap:16px;
   width: 100%;
-  --hero-sub-paragraph-max: min(40rem, 72%);
 }
 
 h1{
@@ -70,6 +71,15 @@ h1{
   -webkit-text-stroke: 3px #3ECFB0;
   letter-spacing: -0.11em;
   line-height: 1;
+}
+
+.hero-title{
+  display: inline-block;
+  transition: transform 0.25s ease;
+  cursor: default;
+}
+.hero-title:hover{
+  transform: scale(1.06) rotate(-3deg);
 }
 
 h2{
@@ -94,7 +104,7 @@ h3{
 
 /* hero */
 .hero-text h3{
-  max-width: var(--hero-sub-paragraph-max);
+  max-width: min(40rem, 72%);
   width: fit-content;
 }
 .rsvpBtn{
@@ -109,15 +119,21 @@ h3{
   border-radius: 100px;
   text-decoration: none;
   letter-spacing: 0.05em;
+  transition: transform 0.25s ease;
 }
 .rsvpBtn:hover{
-  opacity: 0.8;
+  transform: scale(1.08) rotate(-2deg);
 }
 .hero-image{
   transform: rotate(-20deg);
   align-self: center;
   grid-column: 2;
   grid-row: 1;
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+.hero-image:hover{
+  transform: rotate(-12deg) scale(1.08);
 }
 
 /* zigzag challenge box*/
@@ -125,8 +141,8 @@ h3{
   margin-top: 1rem;
   margin-left: 0;
   align-self: flex-start;
-  width: min(calc(var(--hero-sub-paragraph-max) * 2), 100%);
-  max-width: 100%;
+  width: 100%;
+  max-width: min(80rem, 100%);
   box-sizing: border-box;
 }
 
@@ -159,31 +175,139 @@ h3{
 
 /* how section */
 .how-section{
-  padding:41px 80px;
+  padding: 24px 80px 28px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 .how-section h2{
-  align-self: right;
+  align-self: stretch;
   width: 100%;
   text-align: right;
+  margin: 0 0 6px;
+}
+.how-section-body{
+  display: grid;
+  grid-template-columns: minmax(0, 741px) minmax(0, 1fr);
+  gap: 18px 36px;
+  align-items: start;
+  width: 100%;
+}
+
+/* Dice “5” layout: corners + center (standard die face) */
+.dice-five{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: clamp(0.35rem, 2.5vw, 1rem);
+  width: 100%;
+  max-width: min(500px, 100%);
+  margin-top: 1.75rem;
+  margin-inline: auto;
+  justify-self: center;
+  padding: 0.25rem;
+}
+.dice-five__cell:nth-child(1){
+  grid-column: 1;
+  grid-row: 1;
+}
+.dice-five__cell:nth-child(2){
+  grid-column: 3;
+  grid-row: 1;
+}
+.dice-five__cell:nth-child(3){
+  grid-column: 2;
+  grid-row: 2;
+}
+.dice-five__cell:nth-child(4){
+  grid-column: 1;
+  grid-row: 3;
+}
+.dice-five__cell:nth-child(5){
+  grid-column: 3;
+  grid-row: 3;
+}
+.dice-five__cell{
+  position: relative;
+}
+.dice-five__cell:hover{
+  z-index: 2;
+}
+.dice-five__card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  cursor: default;
+  transition: filter 0.35s ease;
+}
+.dice-five__img-wrap{
+  line-height: 0;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+.dice-five__img{
+  width: clamp(88px, 24vw, 168px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.dice-five__caption{
+  font-size: clamp(0.68rem, 1.95vw, 0.88rem);
+  font-weight: 700;
+  color: #0e3532;
+  text-align: center;
+  line-height: 1.4;
+  margin: 0.4rem 0 0;
+  padding: 0.4rem 0.55rem;
+  max-width: 12rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(14, 53, 50, 0.28);
+  box-shadow: 0 1px 0 rgba(62, 207, 176, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.dice-five__cell:hover .dice-five__img-wrap{
+  transform: rotate(0deg) scale(1.1);
+}
+.dice-five__cell:hover .dice-five__caption{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.dice-five__cell:hover .dice-five__card{
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+@media (prefers-reduced-motion: reduce){
+  .dice-five__img-wrap,
+  .dice-five__caption,
+  .dice-five__card{
+    transition: none;
+  }
+  .dice-five__cell:hover .dice-five__img-wrap{
+    transform: rotate(var(--tilt, 0deg)) scale(1.03);
+  }
+  .dice-five__cell:hover .dice-five__caption{
+    transform: none;
+  }
 }
 .steps{
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
   width: 100%;
   max-width: 741px;
   align-items: flex-start;
-  margin-top:20px;
+  margin-top: 8px;
 }
 .step{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap:10px;
+  gap: 6px;
   width: 100%;
 }
 .step-tag{
@@ -198,17 +322,17 @@ h3{
   color: var(--step-tag-fg, #fff);
 }
 .step-body{
-  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  font-size: 1rem;
   font-weight: 700;
   color: #0e3532;
-  background: color-mix(in srgb, var(--step-color) 24%, rgba(255, 255, 255, 0.72));
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(6px);
   padding: 12px 22px;
   border-radius: 100px;
   line-height: 1.6;
   text-align: left;
   align-self: stretch;
-  border: 2px solid color-mix(in srgb, var(--step-color) 42%, rgba(255, 255, 255, 0.75));
+  border: 2px solid var(--step-color);
   box-sizing: border-box;
 }
 .step-body a{
