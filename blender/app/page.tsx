@@ -55,7 +55,7 @@ export default function Home() {
           <div className="hero-text">
             <h1 className="hero-title">blender</h1>
             <h3>create a 3d project using CAD, <br></br>learn new skills, get prizes!!!</h3>
-            <a href="#" className="rsvpBtn">rsvp now!</a>
+            <a href="https://forms.fillout.com/t/b6QT5czYGPus" className="rsvpBtn">rsvp now!</a>
 
             <div className="challenge-wrap">
               <div className="weekly-challenge">
