@@ -43,6 +43,70 @@ const FRUITS = [
   },
 ];
 
+// prizes!!!!
+const PRIZES = [
+  {src: '/watercolor.webp', label: 'watercolors/paint'},
+  {src:'/subscription.png', label: "software memberships"},
+  { src: '/sketchbook.webp', label: 'sketchbook' },
+  { src: '/sewingsupplies.webp', label: 'sewing supplies' },
+  { src: '/sewingmachine.png', label: 'sewing machine' },
+  { src: '/posca.webp', label: 'posca paint pens' },
+  { src: '/muesume.webp', label: 'museum memberships' },
+  { src: '/modelkit.png', label: 'any model kit!' },
+  { src: '/micronpens.webp', label: 'pens / micron pens' },
+  { src: '/legos.png', label: 'any lego set!' },
+  { src: '/laptop.webp', label: 'laptop' },
+  { src: '/keyboard.webp', label: 'keyboard' },
+  { src: '/giftcards.png', label: 'giftcards, robux, coffee' },
+  { src: '/filament.png', label: 'filament' },
+  { src: '/draftingpenci.webp', label: 'drafting pencils' },
+  { src: '/digicam.webp', label: 'digicam / camera' },
+  { src: '/bambu.jpg', label: 'bambu lamp kits' },
+  { src: '/applepencil.png', label: 'apple pencil' },
+  { src: '/alcoholmarkers.jpg', label: 'alcohol markers' },
+  { src: '/3dprinter.webp', label: '3d printer' },
+  { src: '/placeholder.png', label: 'any suggestions?' }
+];
+
+const FAQ_ITEMS: {
+  color: string;
+  summaryFg?: string;
+  q: string;
+  a: string;
+}[] = [
+  {
+    color: '#e67b5c',
+    q: 'What is Hack Club?',
+    a: 'Hack Club is a community of teens from around the world who code together, attend hackathons, and share interests in technology, art, games, and more! Join the Slack if you\'re a teen!',
+  },
+  {
+    color: '#f2a93b',
+    q: 'Who is eligible? What if I\'m a beginner?',
+    a: 'Any teenager between 13-18 years old is eligible! Blender is available towards anyone, including beginnerings, artists, editors, fashion designers, gamedevs, architects, ANYONE!! We have guides for you to learn from as well.',
+  },
+  {
+    color: '#eec866',
+    q: 'How do I start?',
+    a: 'See the above steps! Go to the guides page for some project ideas and guides on how to start creating! Make sure you are tracking your hours via Hackatime or Lapse.',
+  },
+  {
+    color: '#cff450',
+    summaryFg: '#0e3532',
+    q: 'What does “shipped” mean?',
+    a: 'Your project needs a deployed, experienceable link, or .stl file, as well as an open-source Git repository.',
+  },
+  {
+    color: "#7bcb00",
+    q: 'How do I get prizes?',
+    a: 'You get prizes based on the amount of hours you ship while working on projects, which you can spend in the shop! Projects that you spend 10+ hrs on are eligible for potential hour boosts. You can also earn bonus hours/prizes like a custom sticker sheet/custom shirt for completing all fruit tracks, or prizes and boosts for completing the weekly challenges.'
+  },
+  {
+    color: "#e67b5c",
+    q: "I have more questions.",
+    a: "Message @adishree on the Hack Club Slack and join #channel-coming-soon for any questions!"
+  }
+];
+
 export default function Home() {
   return (
     <HomeShell>
@@ -55,8 +119,8 @@ export default function Home() {
 
             <div className="challenge-wrap">
               <div className="weekly-challenge">
-                <p className="challenge-heading">weekly challenge:</p>
-                <p className="challenge-body">create a fidget toy/stress reliever 3d model, get a fidget like needohs or slime!</p>
+                <p className="challenge-heading">weekly challenge(s):</p>
+                <p className="challenge-body">- create a fidget toy/stress reliever 3d model, get a fidget like needohs or slime! <br></br> - spend 20-30 hrs on a 3d model, get a custom plushie of it shipped!</p>
               </div>
             </div>
           </div>
@@ -76,7 +140,7 @@ export default function Home() {
       </div>
 
       <div className="how-section">
-        <h2>how it works</h2>
+        <h2 id="how-it-works">how it works</h2>
 
 {/* steps */}
         <div className="how-section-body">
@@ -161,9 +225,71 @@ export default function Home() {
       </div>
 
       <div className="prizes-section">
-            <center><h2>prizes</h2></center>
-            <h3 className="prizes-body">a shop is coming soon, but here are the prize options! this is open to any suggestions.</h3>
+        <h2 id="prizes">prizes</h2>
+
+        <div className="prize-marquee">
+          <div className="prize-rainbow-bg" aria-hidden>
+            <div style={{ background: '#ADFF4B' }} />
+            <div style={{ background: '#3ECFB0' }} />
+            <div style={{ background: '#FF9A2E' }} />
+            <div style={{ background: '#FF5640' }} />
+            <div style={{ background: '#FFD93D' }} />
+            <div style={{ background: '#ADFF4B' }} />
+            <div style={{ background: '#3ECFB0' }} />
+            <div style={{ background: '#FF9A2E' }} />
+            <div style={{ background: '#FF5640' }} />
+            <div style={{ background: '#FFD93D' }} />
+          </div>
+          <div className="prize-wrap">
+            <div className="prize-track">
+              {[...PRIZES, ...PRIZES].map((p, i) => (
+                <div className="prize-card" key={`${p.src}-${i}`}>
+                  <div className="prize-img-wrap">
+                    <Image
+                      src={p.src}
+                      alt={p.label}
+                      width={100}
+                      height={100}
+                      className="prize-img"
+                      loading="lazy"
+                      sizes="120px"
+                      style={{ backgroundColor: 'transparent' }}
+                    />
+                  </div>
+                  <p className="prize-label">{p.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
+
+      <section className="faq-section" id="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">faq</h2>
+
+        <div className="faq-list">
+          {FAQ_ITEMS.map((item) => (
+            <details
+              key={item.q}
+              className="faq-item"
+              style={
+                {
+                  '--faq-color': item.color,
+                  ...(item.summaryFg ? { '--faq-summary-fg': item.summaryFg } : {}),
+                } as CSSProperties
+              }
+            >
+              <summary className="faq-summary">
+                <span className="faq-q">{item.q}</span>
+                <span className="faq-chevron" aria-hidden>
+                  ▼
+                </span>
+              </summary>
+              <div className="faq-answer">{item.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
     </HomeShell>
   );
 };
