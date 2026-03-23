@@ -1,5 +1,14 @@
 'use client';
 
+import Link from 'next/link';
+
+const NAV_LINKS: { label: string; href: string }[] = [
+  { label: 'how it works', href: '/#how-it-works' },
+  { label: 'prizes', href: '/#prizes' },
+  { label: 'faq', href: '/#faq' },
+  { label: 'guides', href: '/guides' },
+];
+
 type NavbarProps = {
   onReopenPopup?: () => void;
 };
@@ -11,12 +20,13 @@ export default function Navbar({ onReopenPopup }: NavbarProps) {
       className="flex items-center justify-between px-8 py-4 sticky top-0 z-50"
     >
       <div className="flex items-center gap-3 min-w-0">
-        <span
-          className="font-bold text-white text-lg shrink-0"
+        <Link
+          href="/"
+          className="font-bold text-white text-lg shrink-0 hover:opacity-80 transition-opacity"
           style={{ fontFamily: 'var(--font-dynapuff)' }}
         >
           blender
-        </span>
+        </Link>
         {onReopenPopup ? (
           <button type="button" className="popup-reopen-btn" onClick={onReopenPopup}>
             click to reopen popup
@@ -24,13 +34,13 @@ export default function Navbar({ onReopenPopup }: NavbarProps) {
         ) : null}
       </div>
       <div className="flex gap-8 shrink-0">
-        {['how it works', 'prizes', 'faq'].map((link) => (
+        {NAV_LINKS.map(({ label, href }) => (
           <a
-            key={link}
-            href={`#${link.replace(/ /g, '-')}`}
+            key={label}
+            href={href}
             className="text-white font-bold text-sm hover:opacity-60 transition-opacity"
           >
-            {link}
+            {label}
           </a>
         ))}
       </div>

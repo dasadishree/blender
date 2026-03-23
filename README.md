@@ -9,5 +9,4 @@ Assets from: Canva, Google, Myself
 TODO:
 - mobile friendly
 - draw my own assets
-- faq
 - finish writing the free responsequestion
