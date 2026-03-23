@@ -17,7 +17,7 @@ export default function Navbar({ onReopenPopup }: NavbarProps) {
   return (
     <nav
       style={{ backdropFilter: 'blur(10px)', background: 'rgba(255,255,255,0.25)' }}
-      className="flex items-center justify-between px-8 py-4 sticky top-0 z-50"
+      className="site-nav flex items-center justify-between px-8 py-4 sticky top-0 z-50"
     >
       <div className="flex items-center gap-3 min-w-0">
         <Link
