@@ -2,7 +2,7 @@ import "./globals.css";
 import HomeShell from '@/components/HomeShell';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 // fruitssssd
 const FRUITS = [
@@ -72,22 +72,55 @@ const FAQ_ITEMS: {
   color: string;
   summaryFg?: string;
   q: string;
-  a: string;
+  a: ReactNode;
 }[] = [
   {
     color: '#e67b5c',
     q: 'What is Hack Club?',
-    a: 'Hack Club is a community of teens from around the world who code together, attend hackathons, and share interests in technology, art, games, and more! Join the Slack if you\'re a teen!',
+    a: (
+      <>
+        <a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">
+          Hack Club
+        </a>{' '}
+        is a community of teens from around the world who code together, attend hackathons, and share
+        interests in technology, art, games, and more! Join the{' '}
+        <a href="https://slack.hackclub.com" target="_blank" rel="noopener noreferrer">
+          Slack
+        </a>{' '}
+        if you&apos;re a teen!
+      </>
+    ),
   },
   {
     color: '#f2a93b',
     q: 'Who is eligible? What if I\'m a beginner?',
-    a: 'Any teenager between 13-18 years old is eligible! Blender is available towards anyone, including beginnerings, artists, editors, fashion designers, gamedevs, architects, ANYONE!! We have guides for you to learn from as well.',
+    a: (
+      <>
+        Any teenager between 13-18 years old is eligible! Blender is available towards anyone,
+        including beginnerings, artists, editors, fashion designers, gamedevs, architects, ANYONE!!
+        We have <Link href="/guides">guides</Link> for you to learn from as well.
+      </>
+    ),
   },
   {
     color: '#eec866',
     q: 'How do I start?',
-    a: 'See the above steps! Go to the guides page for some project ideas and guides on how to start creating! Make sure you are tracking your hours via Hackatime or Lapse.',
+    a: (
+      <>
+        See the{' '}
+        <a href="#how-it-works">above steps</a>! Go to the <Link href="/guides">guides page</Link> for
+        some project ideas and guides on how to start creating! Make sure you are tracking your hours
+        via{' '}
+        <a href="https://hackatime.hackclub.com" target="_blank" rel="noopener noreferrer">
+          Hackatime
+        </a>{' '}
+        or{' '}
+        <a href="https://lapse.hackclub.com" target="_blank" rel="noopener noreferrer">
+          Lapse
+        </a>
+        .
+      </>
+    ),
   },
   {
     color: '#cff450',
@@ -101,10 +134,18 @@ const FAQ_ITEMS: {
     a: 'You get prizes based on the amount of hours you ship while working on projects, which you can spend in the shop! Projects that you spend 10+ hrs on are eligible for potential hour boosts. You can also earn bonus hours/prizes like a custom sticker sheet/custom shirt for completing all fruit tracks, or prizes and boosts for completing the weekly challenges.'
   },
   {
-    color: "#e67b5c",
-    q: "I have more questions.",
-    a: "Message @adishree on the Hack Club Slack and join #channel-coming-soon for any questions!"
-  }
+    color: '#e67b5c',
+    q: 'I have more questions.',
+    a: (
+      <>
+        Message @adishree on the Hack Club{' '}
+        <a href="https://slack.hackclub.com" target="_blank" rel="noopener noreferrer">
+          Slack
+        </a>{' '}
+        and join #channel-coming-soon for any questions!
+      </>
+    ),
+  },
 ];
 
 export default function Home() {

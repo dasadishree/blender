@@ -381,14 +381,16 @@ h3{
   border: 2px solid var(--step-color);
   box-sizing: border-box;
 }
-.step-body a{
+.step-body a,
+.faq-answer a{
   color: #0a5c56;
   text-decoration: underline;
   text-decoration-style: wavy;
   text-underline-offset: 3px;
   font-weight: 800;
 }
-.step-body a:hover{
+.step-body a:hover,
+.faq-answer a:hover{
   color: #063d39;
 }
 h2:hover{
